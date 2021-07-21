@@ -3,14 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
 public class Symbols {
     private static final String[] EXPRESSION_SYMBOLS = {"+", "-", "*", "/"};
-    private static final String NUMBER_REGEX = "^[0-9]*$";
-    private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_REGEX);
-
     private final String[] dividedValues;
 
     public Symbols(String[] dividedValues) {
@@ -19,7 +15,6 @@ public class Symbols {
 
     public List<String> parseSymbols() {
         List<String> symbols = new ArrayList<>();
-
         IntStream.range(0, this.dividedValues.length)
                 .filter(this::isOdd)
                 .forEach(index -> {
