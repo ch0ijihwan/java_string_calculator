@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import model.ArithmeticOperation.Addition;
 import model.ArithmeticOperation.Division;
