@@ -4,6 +4,7 @@ import model.ArithmeticOperation.Addition;
 import model.ArithmeticOperation.Division;
 import model.ArithmeticOperation.Multiplication;
 import model.ArithmeticOperation.Subtraction;
+import model.SendCalculation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
