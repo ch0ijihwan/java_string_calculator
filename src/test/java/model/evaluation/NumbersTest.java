@@ -1,4 +1,4 @@
-package model;
+package model.evaluation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

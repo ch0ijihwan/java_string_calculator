@@ -1,6 +1,5 @@
-package model;
+package model.evaluation;
 
-import model.evaluation.Symbols;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
