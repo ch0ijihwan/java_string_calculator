@@ -1,4 +1,4 @@
-package model.ArithmeticOperation;
+package model.arithmetic;
 
 public class Division {
     private  int number1;
