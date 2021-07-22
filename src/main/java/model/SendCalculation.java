@@ -13,7 +13,6 @@ public class SendCalculation {
     private Deque<String> numbers;
     private Deque<String> symbols;
 
-
     public SendCalculation(List<String> numbers, List<String> symbols) {
         this.numbers = new ArrayDeque<>(numbers);
         this.symbols = new ArrayDeque<>(symbols);
@@ -29,7 +28,6 @@ public class SendCalculation {
             String num2 = String.valueOf(numbers.poll());
 
             if (operator.equals("+")) {
-
                 Addition addition = new Addition(num1, num2);
                 String addResult = addition.Add();
                 numbers.addFirst(addResult);
@@ -49,11 +47,7 @@ public class SendCalculation {
                 String divResult = division.Div();
                 numbers.addFirst(divResult);
             }
-
         }
         return numbers.poll();
-
     }
-
-
 }
