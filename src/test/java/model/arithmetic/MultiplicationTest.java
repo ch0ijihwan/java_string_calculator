@@ -13,7 +13,7 @@ class MultiplicationTest {
         void Multiple() {
 
         Multiplication multiplication = new Multiplication("2","13");
-        assertThat(multiplication.Multiple()).isEqualTo(26);
+        assertThat(multiplication.Multiple()).isEqualTo("26");
 
     }
 

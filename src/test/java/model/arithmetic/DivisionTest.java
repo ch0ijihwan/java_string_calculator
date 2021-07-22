@@ -12,7 +12,7 @@ class DivisionTest {
     void Div() {
 
         Division division = new Division("3","1");
-        assertThat(division.Div()).isEqualTo(3);
+        assertThat(division.Div()).isEqualTo("3");
 
     }
 
