@@ -16,4 +16,8 @@ public class CalculateView {
 
         return expressionValue;
     }
+
+    public void outResult(String result){
+        System.out.println(result);
+    }
 }
