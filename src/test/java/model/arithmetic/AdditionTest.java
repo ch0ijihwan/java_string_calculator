@@ -13,7 +13,7 @@ class AdditionTest {
         //given
         Addition addition = new Addition("1", "2");
 
-        assertThat(addition.Add()).isEqualTo(3);
+        assertThat(addition.Add()).isEqualTo("3");
 
         //when
         //then
