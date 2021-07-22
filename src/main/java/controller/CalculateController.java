@@ -1,13 +1,28 @@
 package controller;
 
+import model.SendCalculation;
+import model.evaluation.Expression;
+import model.evaluation.ExpressionValues;
+import view.CalculateView;
+
 public class CalculateController {
-    String value;
 
-    public CalculateController(String value) {
-        this.value = value;
+    CalculateView calculateView;
+
+    public CalculateController() {
+        calculateView = new CalculateView();
     }
 
-    public String[] splitValues() {
-        return this.value.replaceAll("\\s", " ").split(" ");
+    public String calculate() {
+        ExpressionValues calculateController = new ExpressionValues(calculateView.inputExpression());
+        Expression expression = new Expression(calculateController.splitValues());
+        SendCalculation sendCalculation = new SendCalculation(
+                expression.giveEvaluatedNumbers(),
+                expression.giveEvaluatedSymbols()
+        );
+
+        return sendCalculation.Calculation();
     }
+
+
 }
