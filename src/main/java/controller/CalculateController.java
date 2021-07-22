@@ -13,7 +13,7 @@ public class CalculateController {
         calculateView = new CalculateView();
     }
 
-    public String calculate() {
+    public void calculate() {
         ExpressionValues calculateController = new ExpressionValues(calculateView.inputExpression());
         Expression expression = new Expression(calculateController.splitValues());
         SendCalculation sendCalculation = new SendCalculation(
@@ -21,7 +21,7 @@ public class CalculateController {
                 expression.giveEvaluatedSymbols()
         );
 
-        return sendCalculation.Calculation();
+        calculateView.outResult( sendCalculation.Calculation());
     }
 
 
