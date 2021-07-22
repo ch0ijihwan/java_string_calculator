@@ -1,4 +1,4 @@
-package model.ArithmeticOperation;
+package model.arithmetic;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
