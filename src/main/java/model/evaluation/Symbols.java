@@ -1,4 +1,4 @@
-package model;
+package model.evaluation;
 
 import java.util.ArrayList;
 import java.util.Arrays;

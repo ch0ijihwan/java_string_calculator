@@ -1,9 +1,9 @@
 package model;
 
-import model.ArithmeticOperation.Addition;
-import model.ArithmeticOperation.Division;
-import model.ArithmeticOperation.Multiplication;
-import model.ArithmeticOperation.Subtraction;
+import model.arithmetic.Addition;
+import model.arithmetic.Division;
+import model.arithmetic.Multiplication;
+import model.arithmetic.Subtraction;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
