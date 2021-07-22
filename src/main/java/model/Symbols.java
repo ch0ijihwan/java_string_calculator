@@ -31,7 +31,7 @@ public class Symbols {
 
     private void validateSymbols(String symbol) {
         if (Arrays.stream(EXPRESSION_SYMBOLS).noneMatch(s -> s.equals(symbol))) {
-            throw new IllegalArgumentException("연산자가 매우 이상합니다.");
+            throw new IllegalArgumentException("연산자의 위치에 영산자가 아닌, 다른 문자가 입력되었습니다.");
         }
     }
 
