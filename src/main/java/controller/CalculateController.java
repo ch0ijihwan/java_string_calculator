@@ -20,9 +20,7 @@ public class CalculateController {
                 expression.giveEvaluatedNumbers(),
                 expression.giveEvaluatedSymbols()
         );
-
         calculateView.outResult( sendCalculation.Calculation());
     }
-
 
 }
