@@ -2,22 +2,16 @@ package view;
 
 import java.util.Scanner;
 
-public class CalculateView {
+public class Input {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private String expressionValue = null;
 
-    public CalculateView() {
+    public Input() {
         expressionValue = SCANNER.nextLine();
     }
-
     public String inputExpression() {
-
         return expressionValue;
-    }
-
-    public void outResult(String result){
-        System.out.println(result);
     }
 }
