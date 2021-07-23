@@ -3,24 +3,25 @@ package controller;
 import model.SendCalculation;
 import model.evaluation.Expression;
 import model.evaluation.ExpressionValues;
-import view.CalculateView;
+import view.Input;
+import view.OutReuslt;
 
 public class CalculateController {
 
-    CalculateView calculateView;
+    Input input;
 
     public CalculateController() {
-        calculateView = new CalculateView();
+        input = new Input();
     }
 
     public void calculate() {
-        ExpressionValues calculateController = new ExpressionValues(calculateView.inputExpression());
+        ExpressionValues calculateController = new ExpressionValues(input.inputExpression());
         Expression expression = new Expression(calculateController.splitValues());
         SendCalculation sendCalculation = new SendCalculation(
                 expression.giveEvaluatedNumbers(),
                 expression.giveEvaluatedSymbols()
         );
-        calculateView.outResult( sendCalculation.Calculation());
+        new OutReuslt(sendCalculation.Calculation());
     }
 
 }
