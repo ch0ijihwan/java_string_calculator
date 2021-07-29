@@ -13,7 +13,6 @@ public class Number {
         }
         this.number = Integer.parseInt(number);
     }
-
     public int value() {
         return this.number;
     }
