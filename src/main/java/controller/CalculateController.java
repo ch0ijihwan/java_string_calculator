@@ -20,7 +20,7 @@ public class CalculateController {
         Calculation sendCalculation = new Calculation(
                 expression.getEvaluatedNumbers(), expression.getEvaluatedOperators()
         );
-        sendCalculation.Calculation();
+        sendCalculation.calculation();
         new OutReuslt(sendCalculation.outResult());
     }
 }

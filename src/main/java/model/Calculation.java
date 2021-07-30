@@ -34,7 +34,7 @@ public class Calculation {
         }
     }
 
-    public void Calculation() {
+    public void calculation() {
         IntStream.range(0, operators.size())
                 .forEach(index -> parseOperator(operators.get(index), numbers.get(index).value()));
     }
