@@ -18,10 +18,9 @@ public class CalculateController {
         ExpressionValues calculateController = new ExpressionValues(input.inputExpression());
         Expression expression = new Expression(calculateController.splitValues());
         SendCalculation sendCalculation = new SendCalculation(
-                expression.giveEvaluatedNumbers(),
-                expression.giveEvaluatedSymbols()
+                expression.getEvaluatedNumbers(), expression.getEvaluatedOperators()
         );
-        new OutReuslt(sendCalculation.Calculation());
+        sendCalculation.Calculation();
+        new OutReuslt(sendCalculation.outResult());
     }
-
 }
