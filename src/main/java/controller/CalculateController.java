@@ -1,6 +1,6 @@
 package controller;
 
-import model.SendCalculation;
+import model.Calculation;
 import model.evaluation.Expression;
 import model.evaluation.ExpressionValues;
 import view.Input;
@@ -17,7 +17,7 @@ public class CalculateController {
     public void calculate() {
         ExpressionValues calculateController = new ExpressionValues(input.inputExpression());
         Expression expression = new Expression(calculateController.splitValues());
-        SendCalculation sendCalculation = new SendCalculation(
+        Calculation sendCalculation = new Calculation(
                 expression.getEvaluatedNumbers(), expression.getEvaluatedOperators()
         );
         sendCalculation.Calculation();

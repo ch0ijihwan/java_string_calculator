@@ -4,16 +4,18 @@ import model.arithmetic.Addition;
 import model.arithmetic.Division;
 import model.arithmetic.Multiplication;
 import model.arithmetic.Subtraction;
+import model.evaluation.number.Number;
+import model.evaluation.symbol.Operator;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class SendCalculation {
-    private List<Number> numbers;
-    private List<Operator> operators;
+public class Calculation {
+    private final List<Number> numbers;
+    private final List<Operator> operators;
     private static int result;
 
-    public SendCalculation(List<Number> numbers, List<Operator> symbols) {
+    public Calculation(List<Number> numbers, List<Operator> symbols) {
         this.numbers = numbers;
         this.operators = symbols;
         result = numbers.get(0).value();
