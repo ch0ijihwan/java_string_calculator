@@ -2,8 +2,8 @@ package model.arithmetic;
 
 public class Multiplication implements Operation {
 
-    private int number1;
-    private int number2;
+    private final int number1;
+    private final int number2;
 
     public Multiplication(int number1, int number2) {
         this.number1 = number1;
