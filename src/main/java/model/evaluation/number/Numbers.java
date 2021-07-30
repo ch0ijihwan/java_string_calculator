@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Numbers {
-    private final List<Number> numbers;
+    private List<Number> numbers;
 
     public Numbers(String[] dividedValues) {
         numbers = IntStream.range(0, dividedValues.length)
@@ -22,7 +22,9 @@ public class Numbers {
         return index % 2 == 0;
     }
 
-    public int getNumber(int index) {
-        return this.numbers.get(index).value();
+    public List<Number> getNumbers() {
+        {
+            return this.numbers;
+        }
     }
 }
