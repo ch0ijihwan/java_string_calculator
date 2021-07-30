@@ -8,6 +8,7 @@ public class Subtraction implements Operation{
         this.number1 = number1;
         this.number2 = number2;
     }
+
     @Override
     public int operate() {
         return number1 - number2;
