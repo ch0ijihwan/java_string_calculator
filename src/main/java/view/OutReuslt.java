@@ -1,9 +1,7 @@
 package view;
 
 public class OutReuslt {
-    String result;
-
-    public OutReuslt(String result) {
+    public OutReuslt(int result) {
         System.out.println(result);
     }
 }
