@@ -5,49 +5,40 @@ import model.arithmetic.Division;
 import model.arithmetic.Multiplication;
 import model.arithmetic.Subtraction;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class SendCalculation {
-    private Deque<String> numbers;
-    private Deque<String> symbols;
+    private List<Number> numbers;
+    private List<Operator> operators;
+    private static int result;
 
-    public SendCalculation(List<String> numbers, List<String> symbols) {
-        this.numbers = new ArrayDeque<>(numbers);
-        this.symbols = new ArrayDeque<>(symbols);
+    public SendCalculation(List<Number> numbers, List<Operator> symbols) {
+        this.numbers = numbers;
+        this.operators = symbols;
+        result = numbers.get(0).value();
+        numbers.remove(0);
     }
 
-    public String Calculation() {
-
-        int count = symbols.size();
-
-        for (int i = 0; i < count; i++) {
-            String operator = symbols.poll();
-            String num1 = String.valueOf(numbers.poll());
-            String num2 = String.valueOf(numbers.poll());
-
-            if (operator.equals("+")) {
-                Addition addition = new Addition(num1, num2);
-                String addResult = addition.Add();
-                numbers.addFirst(addResult);
-            }
-            if (operator.equals("-")) {
-                Subtraction subtraction = new Subtraction(num1, num2);
-                String subResult = subtraction.Sub();
-                numbers.addFirst(subResult);
-            }
-            if (operator.equals("*")) {
-                Multiplication multiplication = new Multiplication(num1, num2);
-                String mulResult = multiplication.Multiple();
-                numbers.addFirst(mulResult);
-            }
-            if (operator.equals("/")) {
-                Division division = new Division(num1, num2);
-                String divResult = division.Div();
-                numbers.addFirst(divResult);
-            }
+    static void parseOperator(Operator operator, int number) {
+        if (operator.equals(Operator.PLUS)) {
+            result = new Addition(number, result).operate();
+        } else if (operator.equals(Operator.MINUS)) {
+            result = new Subtraction(result, number).operate();
+        } else if (operator.equals(Operator.DIVIDE)) {
+            result = new Division(result, number).operate();
+        } else if (operator.equals(Operator.MULTIPLY)) {
+            result = new Multiplication(result, number).operate();
         }
-        return numbers.poll();
     }
+
+    public void Calculation() {
+        IntStream.range(0, operators.size())
+                .forEach(index -> parseOperator(operators.get(index), numbers.get(index).value()));
+    }
+
+    public int outResult() {
+        return result;
+    }
+
 }
