@@ -1,10 +1,13 @@
-package model.vo;
+package model;
+
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class NumbersTest {
     @Test
@@ -18,6 +21,6 @@ class NumbersTest {
         Numbers numbers = new Numbers(inputExpression);
 
         //then
-        assertThat(numbers).isEqulTo(new Numbers(expected));
+        assertThat(numbers).isEqualTo(new Numbers(expected));
     }
 }
