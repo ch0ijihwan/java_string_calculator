@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class NumbersTest {
     @Test
@@ -22,5 +23,24 @@ class NumbersTest {
 
         //then
         assertThat(numbers).isEqualTo(new Numbers(expected));
+    }
+
+    @Test
+    @DisplayName("poll() 호출 시, 리스트의 제일 앞 값을 삭제하고, 값을 반환한다.")
+    void poll() {
+        //given
+        List<String> inputtedExpression = Arrays.asList("1", "+", "3", "-", "2");
+        Numbers numbers = new Numbers(inputtedExpression);
+        int expectedNumber = 1;
+        Numbers expectedNumbers = new Numbers(Arrays.asList("3", "2"));
+
+        //when
+        int actualNumber = numbers.poll();
+
+        //then
+        assertAll(
+                () -> assertThat(actualNumber).isEqualTo(expectedNumber),
+                () -> assertThat(numbers).isEqualTo(expectedNumbers)
+        );
     }
 }
