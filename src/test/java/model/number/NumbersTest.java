@@ -1,4 +1,4 @@
-package model;
+package model.number;
 
 
 import org.junit.jupiter.api.DisplayName;

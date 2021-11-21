@@ -1,4 +1,4 @@
-package model;
+package model.symbol;
 
 import java.util.Arrays;
 
@@ -25,4 +25,10 @@ public enum MathSymbol {
                 .orElseThrow(() -> new IllegalArgumentException("연산자의 형태가 잘못 되었습니다."));
     }
 
+    @Override
+    public String toString() {
+        return "MathSymbol{" +
+                "symbol='" + symbol + '\'' +
+                '}';
+    }
 }

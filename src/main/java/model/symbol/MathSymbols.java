@@ -1,4 +1,4 @@
-package model;
+package model.symbol;
 
 import java.util.List;
 import java.util.Objects;
