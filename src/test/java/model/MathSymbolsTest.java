@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class MathSymbolsTest {
     @Test
     @DisplayName("List<String> 형태의 수식 리스트를 입력 받으면, 이중 수학 기호만을 입력 받아 List<MathSymbol> 형태로 저장한다.")
@@ -19,6 +21,6 @@ class MathSymbolsTest {
         mathSymbols = new MathSymbols(inputtedExpression);
 
         //then
-        assertThat(mathSymbols).isEqulsTo(expectedSymbols);
+        assertThat(mathSymbols.getInputtedMathSymbols()).isEqualTo(expectedSymbols);
     }
 }
