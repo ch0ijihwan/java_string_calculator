@@ -14,10 +14,15 @@ public class Expression {
     private final Numbers numbers;
     private final MathSymbols mathSymbols;
 
-    public Expression(String[] inputtedExpression) {
+    public Expression(final String[] inputtedExpression) {
         validateExpression(inputtedExpression);
         numbers = new Numbers(List.of(inputtedExpression));
         mathSymbols = new MathSymbols(List.of(inputtedExpression));
+    }
+
+    public Expression(final List<String> inputtedExpression) {
+        numbers = new Numbers(inputtedExpression);
+        mathSymbols = new MathSymbols(inputtedExpression);
     }
 
     private void validateExpression(final String[] expression) {
@@ -71,9 +76,16 @@ public class Expression {
         }
     }
 
-    public Expression(List<String> inputtedExpression) {
-        numbers = new Numbers(inputtedExpression);
-        mathSymbols = new MathSymbols(inputtedExpression);
+    public int getMathSymbolsSize() {
+        return mathSymbols.size();
+    }
+
+    public MathSymbol nextMathSymbol() {
+        return mathSymbols.next();
+    }
+
+    public int nextNumber() {
+        return numbers.next();
     }
 
     @Override
