@@ -81,11 +81,11 @@ public class Expression {
     }
 
     public MathSymbol nextMathSymbol() {
-        return mathSymbols.next();
+        return mathSymbols.poll();
     }
 
     public int nextNumber() {
-        return numbers.next();
+        return numbers.poll();
     }
 
     @Override
