@@ -5,21 +5,27 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MathSymbols {
-    private final List<MathSymbol> inputtedMathSymbols;
+    private static final int FIRST_INDEX = 0;
+    private static final int SECOND_INDEX = 1;
+    private List<MathSymbol> inputtedMathSymbols;
 
-    public MathSymbols(List<String> inputtedExpression) {
+    public MathSymbols(final List<String> inputtedExpression) {
         this.inputtedMathSymbols = filterOutSymbols(inputtedExpression).stream()
                 .map(MathSymbol::of)
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    private List<String> filterOutSymbols(List<String> tokens) {
+    public List<MathSymbol> getInputtedMathSymbols() {
+        return inputtedMathSymbols;
+    }
+
+    private List<String> filterOutSymbols(final List<String> tokens) {
         return tokens.stream()
                 .filter(this::isMathSymbol)
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    private boolean isMathSymbol(String token) {
+    private boolean isMathSymbol(final String token) {
         try {
             MathSymbol.of(token);
             return true;
@@ -28,12 +34,15 @@ public class MathSymbols {
         }
     }
 
-    public List<MathSymbol> getInputtedMathSymbols() {
-        return inputtedMathSymbols;
+    public int size() {
+        return inputtedMathSymbols.size();
     }
 
-    public String getInputtedMathSymbol(int index) {
-        return inputtedMathSymbols.get(index).getSymbol();
+    public MathSymbol poll() {
+        MathSymbol mathSymbol = inputtedMathSymbols.get(FIRST_INDEX);
+        int lastIndex = inputtedMathSymbols.size();
+        inputtedMathSymbols = inputtedMathSymbols.subList(SECOND_INDEX, lastIndex);
+        return mathSymbol;
     }
 
     @Override
