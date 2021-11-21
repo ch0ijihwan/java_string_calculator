@@ -9,6 +9,10 @@ public class Number {
         this.value = value;
     }
 
+    public Number(final String value) {
+        this.value = Integer.parseInt(value);
+    }
+
     public int getValue() {
         return value;
     }
