@@ -8,7 +8,8 @@ public class Input {
     private static final String DELIMITER = " ";
     private static final Scanner SCANNER = new Scanner(in);
 
-    private Input() {}
+    private Input() {
+    }
 
     public static String[] inputExpression() {
         String value = SCANNER.nextLine();
