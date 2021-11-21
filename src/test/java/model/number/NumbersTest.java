@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 class NumbersTest {
     @Test
-    @DisplayName("생성자로부터 식을 입력 받으면, 이중 숫자만 Number 형태의 리스트로 저장한다.")
+    @DisplayName("생성자로부터 식을 입력 받으면, 입력 받은 값들 중 숫자만 Number 형태의 리스트로 저장한다.")
     void createNumbers() {
         //given
         List<String> inputExpression = Arrays.asList("1", "+", "2");
