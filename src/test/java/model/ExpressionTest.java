@@ -29,10 +29,10 @@ class ExpressionTest {
     @ParameterizedTest
     @DisplayName("객체 생성시 입력 받은 수식에 대한 유효성을 검사한다." +
             "숫자, 연산자, 숫자, 연산자의 패턴으로 제대로 된 식이 입력 되었는지  평가한다.")
-    @CsvSource(value = {"1 2 +","2 + +"})
+    @CsvSource(value = {"1 2 +", "1 2 3", "+ - *"})
     void validateExpression(String tokens) {
         //given
-        String [] inputtedExpression = tokens.split(" ");
+        String[] inputtedExpression = tokens.split(" ");
 
         //then
         assertThatThrownBy(() -> new Expression(inputtedExpression))
