@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Expression {
+    private static final int START = 0;
     private final Numbers numbers;
     private final MathSymbols mathSymbols;
 
@@ -41,14 +42,15 @@ public class Expression {
         return (number % 2 == 1);
     }
 
+
     private void validateExpressionForm(final String[] expression) {
         List<String> numbersOfExpression = new ArrayList<>();
         List<String> mathSymbolsOfExpression = new ArrayList<>();
 
-        IntStream.range(0, expression.length).filter(index -> !isOddNumber(index))
+        IntStream.range(START, expression.length).filter(index -> !isOddNumber(index))
                 .forEach(index -> numbersOfExpression.add(expression[index]));
 
-        IntStream.range(0, expression.length).filter(this::isOddNumber)
+        IntStream.range(START, expression.length).filter(this::isOddNumber)
                 .forEach(index -> mathSymbolsOfExpression.add(expression[index]));
 
         if (!(validateNumberForm(numbersOfExpression) && validateMathSymbolForm(mathSymbolsOfExpression))) {
