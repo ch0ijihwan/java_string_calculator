@@ -10,7 +10,7 @@ public enum MathSymbol {
 
     private final String symbol;
 
-    MathSymbol(String symbol) {
+    MathSymbol(final String symbol) {
         this.symbol = symbol;
     }
 
