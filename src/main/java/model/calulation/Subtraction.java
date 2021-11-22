@@ -4,7 +4,7 @@ import model.symbol.MathSymbol;
 
 public class Subtraction implements CalculationStrategy {
     @Override
-    public int calculate(final int x,final int y) {
+    public int calculate(final int x, final int y) {
         return x - y;
     }
 
