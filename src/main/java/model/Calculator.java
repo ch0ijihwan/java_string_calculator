@@ -9,15 +9,16 @@ public class Calculator {
     public int getResult() {
         return result;
     }
+
     public Calculator(final Expression expression) {
-        int calculatorCount = expression.getMathSymbolsSize();
+        int remainingCalculationCount = expression.getMathSymbolsSize();
         result = expression.nextNumber();
-        while (calculatorCount != 0) {
+        while (remainingCalculationCount != 0) {
             MathSymbol mathSymbol = expression.nextMathSymbol();
             int nextNumber = expression.nextNumber();
             CalculationStrategy calculationStrategy = MathSymbolFinder.findStrategy(mathSymbol);
             result = calculationStrategy.calculate(result, nextNumber);
-            calculatorCount--;
+            remainingCalculationCount--;
         }
     }
 }
