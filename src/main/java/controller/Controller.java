@@ -6,7 +6,7 @@ import view.Display;
 import view.Input;
 
 public class Controller {
-    public Controller() {
+    public void run() {
         String[] tokens = Input.inputExpression();
         Expression expression = new Expression(tokens);
         Calculator calculator = new Calculator(expression);
