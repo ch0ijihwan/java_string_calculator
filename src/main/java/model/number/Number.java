@@ -3,14 +3,22 @@ package model.number;
 import java.util.Objects;
 
 public class Number {
+    private static final String NUMBER_REGEX = "^[0-9]*$";
     private final int value;
+
+    public Number(final String value) {
+        validateInteger(value);
+        this.value = Integer.parseInt(value);
+    }
 
     public Number(final int value) {
         this.value = value;
     }
 
-    public Number(final String value) {
-        this.value = Integer.parseInt(value);
+    private void validateInteger(final String token) {
+        if (!token.matches(NUMBER_REGEX)) {
+            throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
     }
 
     public int getValue() {
