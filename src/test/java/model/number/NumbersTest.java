@@ -15,7 +15,7 @@ class NumbersTest {
     void createNumbers() {
         //given
         List<String> inputExpression = Arrays.asList("1", "+", "2");
-        List<String> expected = Arrays.asList("1", " ", "2");
+        List<String> expected = Arrays.asList("1", "dummy", "2");
 
         //when
         Numbers numbers = new Numbers(inputExpression);
