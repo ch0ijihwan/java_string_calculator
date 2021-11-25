@@ -16,10 +16,19 @@ public class Numbers {
                 .filter(this::isEvenNumber)
                 .mapToObj(index -> new Number(expression.get(index)))
                 .collect(Collectors.toCollection(LinkedList::new));
+
     }
 
     private boolean isEvenNumber(final int number) {
         return (number % 2 == 0);
+    }
+
+    public int poll() {
+        return Objects.requireNonNull(inputtedNumbers.poll()).getValue();
+    }
+
+    public boolean hasNext() {
+        return !inputtedNumbers.isEmpty();
     }
 
     @Override
