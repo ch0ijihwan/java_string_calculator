@@ -8,10 +8,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Numbers {
+    private static final int START_INDEX = 0;
     private final Queue<Number> inputtedNumbers;
 
     public Numbers(final List<String> expression) {
-        inputtedNumbers = IntStream.range(0, expression.size())
+        inputtedNumbers = IntStream.range(START_INDEX, expression.size())
                 .filter(this::isEvenNumber)
                 .mapToObj(index -> new Number(expression.get(index)))
                 .collect(Collectors.toCollection(LinkedList::new));
