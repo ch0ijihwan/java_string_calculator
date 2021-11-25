@@ -1,48 +1,33 @@
 package model.symbol;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MathSymbols {
-    private static final int FIRST_INDEX = 0;
-    private static final int SECOND_INDEX = 1;
-    private List<MathSymbol> inputtedMathSymbols;
+    private final Queue<MathSymbol> inputtedMathSymbols;
 
     public MathSymbols(final List<String> inputtedExpression) {
-        this.inputtedMathSymbols = filterOutSymbols(inputtedExpression).stream()
-                .map(MathSymbol::of)
-                .collect(Collectors.toUnmodifiableList());
+        this.inputtedMathSymbols = IntStream.range(0, inputtedExpression.size())
+                .filter(this::isOddNumber)
+                .mapToObj(index -> MathSymbol.of(inputtedExpression.get(index)))
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
-    public List<MathSymbol> getInputtedMathSymbols() {
-        return inputtedMathSymbols;
+    private boolean isOddNumber(final int number) {
+        return (number % 2 == 1);
     }
 
-    private List<String> filterOutSymbols(final List<String> tokens) {
-        return tokens.stream()
-                .filter(this::isMathSymbol)
-                .collect(Collectors.toUnmodifiableList());
-    }
-
-    private boolean isMathSymbol(final String token) {
-        try {
-            MathSymbol.of(token);
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
-    }
 
     public int size() {
         return inputtedMathSymbols.size();
     }
 
     public MathSymbol poll() {
-        MathSymbol mathSymbol = inputtedMathSymbols.get(FIRST_INDEX);
-        int lastIndex = inputtedMathSymbols.size();
-        inputtedMathSymbols = inputtedMathSymbols.subList(SECOND_INDEX, lastIndex);
-        return mathSymbol;
+        return inputtedMathSymbols.poll();
     }
 
     @Override
@@ -64,4 +49,6 @@ public class MathSymbols {
                 "inputtedMathSymbols=" + inputtedMathSymbols +
                 '}';
     }
+
+
 }
