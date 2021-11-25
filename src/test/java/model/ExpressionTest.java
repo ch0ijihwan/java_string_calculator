@@ -2,8 +2,6 @@ package model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,17 +24,29 @@ class ExpressionTest {
         assertThat(expression).isEqualTo(new Expression(expectedExpression));
     }
 
-    @ParameterizedTest
+    @Test
     @DisplayName("객체 생성시 입력 받은 수식에 대한 유효성을 검사한다." +
-            "숫자, 연산자, 숫자, 연산자의 패턴으로 제대로 된 식이 입력 되었는지  평가한다.")
-    @CsvSource(value = {"1 2 +", "1 2 3", "+ - *"})
-    void validateExpression(String tokens) {
+            "입렫된 숫자와 문자의 길이가 홀수개가 아니면 예외처리를 반환한다.")
+    void validateExpression() {
         //given
-        String[] inputtedExpression = tokens.split(" ");
+        String[] inputtedExpression = new String[]{"1","+","2","+"};
 
         //then
         assertThatThrownBy(() -> new Expression(inputtedExpression))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("수식의 형태가 이상합니다. 숫자 연산자 숫자 연산자의 반복 형태로 입력되지 않았습니다.");
+                .hasMessage("수식의 입력이 잘못 되었습니다.(수식의 길이가 짝수개 입니다. 수식의 길이는 홀수개여야 합니다.)");
+    }
+
+    @Test
+    @DisplayName("객체 생성시 입력 받은 수식에 대한 유효성을 검사한다." +
+            "최소한의 수식이 입력되지 않았을 경우 예외처리를 반환한다.")
+    void validateExpression2() {
+        //given
+        String[] inputtedExpression = new String[]{"1"};
+
+        //then
+        assertThatThrownBy(() -> new Expression(inputtedExpression))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("최소한의 수식이 입력되지 않았습니다.");
     }
 }
