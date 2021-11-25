@@ -1,35 +1,24 @@
 package model.number;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Numbers {
-    private static final int FIRST_INDEX = 0;
-    private static final int SECOND_INDEX = 1;
-    private List<Number> inputtedNumbers;
+    private final Queue<Number> inputtedNumbers;
 
     public Numbers(final List<String> expression) {
-        inputtedNumbers = expression.stream()
-                .filter(this::isInteger)
-                .map(token -> new Number(Integer.parseInt(token)))
-                .collect(Collectors.toUnmodifiableList());
+        inputtedNumbers = IntStream.range(0, expression.size())
+                .filter(this::isEvenNumber)
+                .mapToObj(index -> new Number(expression.get(index)))
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
-    private boolean isInteger(final String token) {
-        try {
-            Integer.parseInt(token);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    public int poll() {
-        int firstNumber = inputtedNumbers.get(FIRST_INDEX).getValue();
-        int lastIndex = inputtedNumbers.size();
-        inputtedNumbers = inputtedNumbers.subList(SECOND_INDEX, lastIndex);
-        return firstNumber;
+    private boolean isEvenNumber(final int number) {
+        return (number % 2 == 0);
     }
 
     @Override
