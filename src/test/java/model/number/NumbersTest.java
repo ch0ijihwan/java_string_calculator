@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class NumbersTest {
     @Test
-    @DisplayName("객체 생성시, 생성자의 파라미터로 부터 입력받은 리스트 값들 중 홀수 번째 인덱스 값들을 Number 객체화 하여 Queue 형태로 저장한다.")
+    @DisplayName("객체 생성시, 생성자의 파라미터로 부터 입력받은 리스트 값들 중 짝수 번째 인덱스 값들을 Number 객체화 하여 Queue 형태로 저장한다.")
     void createNumbers() {
         //given
         List<String> inputExpression = Arrays.asList("1", "+", "2");
