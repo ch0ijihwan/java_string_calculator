@@ -1,6 +1,5 @@
 package controller;
 
-import model.Calculator;
 import model.Expression;
 import view.Display;
 import view.Input;
@@ -9,7 +8,6 @@ public class Controller {
     public void run() {
         String[] tokens = Input.inputExpression();
         Expression expression = new Expression(tokens);
-        Calculator calculator = new Calculator(expression);
-        Display.showResult(calculator.getResult());
+        Display.showResult(expression.getAnswer());
     }
 }
