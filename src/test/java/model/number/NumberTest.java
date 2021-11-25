@@ -35,7 +35,7 @@ class NumberTest {
     }
 
     @Test
-    @DisplayName("객체 생성시 입력 받은, String 값이 숫자가 아닌 경우 예외처리를 반환한다.")
+    @DisplayName("객체 생성시, 입력 받은, String 값이 숫자가 아닌 경우 예외처리를 반환한다.")
     void validateInteger() {
         //given
         String input = "a";
