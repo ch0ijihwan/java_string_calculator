@@ -29,12 +29,12 @@ class SubtractionTest {
     }
 
     @Test
-    @DisplayName("calculate 실행 시, 파라미터로 부터 입력된 값을 나눠서 반환한다.")
+    @DisplayName("calculate 실행 시, 파라미터로 부터 입력된 값을 빼서 반환한다.")
     void calculate() {
         //given
         int inputX = 2;
         int inputY = 1;
-        int expected = 0;
+        int expected = 1;
 
         //when
         int actual = calculation.calculate(inputX, inputY);
