@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class MathSymbolFinder {
     private static final Map<MathSymbol, Calculation> CALCULATION_STRATEGIES = new EnumMap<>(MathSymbol.class);
+
     static {
         CALCULATION_STRATEGIES.put(MathSymbol.PLUS, new Addition());
         CALCULATION_STRATEGIES.put(MathSymbol.MINUS, new Subtraction());
