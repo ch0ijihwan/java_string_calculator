@@ -13,7 +13,6 @@ import static model.MathSymbolFinder.findStrategy;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-
 class MathSymbolFinderTest {
     @ParameterizedTest
     @DisplayName("finder() 메서드 호출 시, 파라미터로 부터 입력받은 MathSymbol 에 해당하는 계산전략을 찾아 반환한다.")

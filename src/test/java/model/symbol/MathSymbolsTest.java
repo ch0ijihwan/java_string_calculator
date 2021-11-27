@@ -8,7 +8,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 class MathSymbolsTest {
     @Test
     @DisplayName("List<String> 형태의 수식 리스트를 입력 받으면, 이중 홀수 인덱스 값에 해당하는 값을 뽑아 Queue<MathSymbol> 형태로 저장한다.")
@@ -39,6 +38,4 @@ class MathSymbolsTest {
         //then
         assertThat(actualSize).isEqualTo(expectedSize);
     }
-
-//
 }
