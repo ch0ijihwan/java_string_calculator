@@ -1,6 +1,6 @@
 package model;
 
-import model.calulation.CalculationStrategy;
+import model.calculation.Calculation;
 import model.number.Numbers;
 import model.symbol.MathSymbol;
 import model.symbol.MathSymbols;
@@ -45,8 +45,8 @@ public class Expression {
         while (numbers.hasNext()) {
             MathSymbol mathSymbol = mathSymbols.poll();
             int nextNumber = numbers.poll();
-            CalculationStrategy calculationStrategy = MathSymbolFinder.findStrategy(mathSymbol);
-            answer = calculationStrategy.calculate(answer, nextNumber);
+            Calculation calculation = MathSymbolFinder.findStrategy(mathSymbol);
+            answer = calculation.calculate(answer, nextNumber);
         }
         return answer;
     }

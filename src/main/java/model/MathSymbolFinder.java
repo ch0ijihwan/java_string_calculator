@@ -1,19 +1,19 @@
 package model;
 
-import model.calulation.*;
+import model.calculation.*;
 import model.symbol.MathSymbol;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MathSymbolFinder {
-    private static final List<CalculationStrategy> CALCULATION_STRATEGIES
+    private static final List<Calculation> CALCULATION_STRATEGIES
             = Arrays.asList(new Addition(), new Subtraction(), new Multiplication(), new Division());
 
     private MathSymbolFinder() {
     }
 
-    public static CalculationStrategy findStrategy(final MathSymbol mathSymbol) {
+    public static Calculation findStrategy(final MathSymbol mathSymbol) {
         return CALCULATION_STRATEGIES.stream()
                 .filter(calculationStrategy -> calculationStrategy.hasMathSymbol(mathSymbol))
                 .findAny()
