@@ -1,6 +1,6 @@
 package model;
 
-import model.calulation.*;
+import model.calculation.*;
 import model.symbol.MathSymbol;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,12 +18,12 @@ class MathSymbolFinderTest {
     @ParameterizedTest
     @DisplayName("finder() 메서드 호출 시, 파라미터로 부터 입력받은 MathSymbol 에 해당하는 계산전략을 찾아 반환한다.")
     @MethodSource("MathSymbolsProvider")
-    void finderStrategy(MathSymbol mathSymbol, Class<CalculationStrategy> expect) {
+    void finderStrategy(MathSymbol mathSymbol, Class<Calculation> expect) {
         //when
-        CalculationStrategy calculationStrategy = findStrategy(mathSymbol);
+        Calculation calculation = findStrategy(mathSymbol);
 
         //then
-        assertThat(calculationStrategy.getClass()).isEqualTo(expect);
+        assertThat(calculation.getClass()).isEqualTo(expect);
     }
 
     static Stream<Arguments> MathSymbolsProvider() {

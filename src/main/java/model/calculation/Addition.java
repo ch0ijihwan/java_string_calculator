@@ -1,8 +1,8 @@
-package model.calulation;
+package model.calculation;
 
 import model.symbol.MathSymbol;
 
-public class Addition implements CalculationStrategy {
+public class Addition implements Calculation {
     @Override
     public int calculate(final int x, final int y) {
         return x + y;
