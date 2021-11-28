@@ -20,7 +20,7 @@ public class Numbers {
     }
 
     private boolean isEvenNumber(final int number) {
-        return (number % 2 == 0);
+        return number % 2 == 0;
     }
 
     public int poll() {
